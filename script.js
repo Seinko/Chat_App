@@ -31,12 +31,12 @@ drone.on('open', (error) => {
     }
 
     // room definition and connecting to room
-    var room = drone.subscribe('observable-mez');
+    var room = drone.subscribe('observable-room');
     room.on('open', function (error) {
         if (error) {
         return console.error(error);
         }
-        console.log("Joined to mez's room");
+        console.log("Joined to chat room");
     });
 
     // message handler
@@ -79,7 +79,7 @@ form.addEventListener('submit', function (e) {
     } else {
         messageInput.value = '';
         drone.publish({
-        room: 'observable-mez',
+        room: 'observable-room',
         message: value,
         });
     }
